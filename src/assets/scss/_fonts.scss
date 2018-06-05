@@ -1,0 +1,32 @@
+$font_path: "~@/assets/fonts/";
+
+@mixin load-font($font-name, $font-file, $extension: ".ttf") {
+  font-family: $font-name;
+  font-weight: normal;
+  font-style: normal;
+  @if ($extension == "otf") {
+    src: url($font-path+$font-file+"."+$extension) format("opentype");
+  } @else {
+    src: url($font-path+$font-file+$extension) format("truetype");
+  }
+}
+
+// @font-face {
+//   @include load-font("bebas-neue", "BebasNeue Regular");
+// }
+
+@font-face {
+  @include load-font("Archivo Narrow", "ArchivoNarrow-Regular");
+}
+@font-face {
+  @include load-font("Julius Sans One", "JuliusSansOne-Regular");
+}
+@font-face {
+  @include load-font("Montserrat", "Montserrat-Regular");
+}
+@font-face {
+  @include load-font("League Spartan-Bold", "LeagueSpartan-Bold", "otf");
+}
+@font-face {
+  @include load-font("Brandon", "Brandon_reg", "otf");
+}

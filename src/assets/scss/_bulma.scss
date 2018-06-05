@@ -1,0 +1,51 @@
+@import "../../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+// 2. Set your own initial variables
+// Update blue
+$font_path: "~@/assets/fonts/";
+
+$black-2: #131619;
+$light-blue: #52658f;
+$grey: #656565;
+$tan: #f7f5e6;
+$yellow: #fbd7a2;
+// Add pink and its invert
+$dark-blue-invert: $tan;
+// Add a serif family
+$family-serif: avenir, sans-serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: $yellow;
+$body-color: black;
+$link-hover: $primary;
+$navbar-item-hover-background-color: transparent;
+$body-size: 16px;
+// $primary: $black-2;
+$primary-invert: $dark-blue-invert;
+// Use the existing orange as the danger color
+// $danger: $orange;
+// Use the new serif family
+$family-primary: $family-serif;
+// $body-line-height: 2;
+
+// $body-color	$primary;
+// 4. Setup your Custom Colors
+$linkedin: #0077b5;
+$linkedin-invert: findColorInvert($linkedin);
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+$github: #333;
+$github-invert: findColorInvert($github);
+
+// 5. Add new color variables to the color map.
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+$addColors: (
+  "twitter": ($twitter, $twitter-invert),
+  "linkedin": ($linkedin, $linkedin-invert),
+  "github": ($github, $github-invert)
+);
+$colors: map-merge($colors, $addColors);
+
+// 6. Import the rest of Bulma
+@import "../../../node_modules/bulma";

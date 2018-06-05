@@ -1,0 +1,53 @@
+/* Triangles */
+@mixin divider-triangle($color: black) {
+  &.divider--triangle::before,
+  &.divider--triangle::after {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  &.divider--triangle::before {
+    top: -50px;
+    background: $color;
+  }
+
+  &.divider--triangle::after {
+    bottom: -50px;
+    z-index: 10;
+    background: inherit;
+  }
+}
+
+@mixin divider-diagonal($color: black) {
+  &.divider--diagonal {
+    z-index: 1;
+    padding-top: 6em;
+    background: $color;
+  }
+
+  &.divider--diagonal::before,
+  &.divider--diagonal::after {
+    top: 0;
+    left: -25%;
+    z-index: -1;
+    width: 150%;
+    height: 75%;
+    background: inherit;
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+  &.divider--diagonal::before {
+    height: 50%;
+    background: $color;
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+  }
+}
